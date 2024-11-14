@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+:root{
+  --CorPri:#336166;
+  --CorSec:#000000;
+  --CorTer:#ffffff;
+  --CorQua:#308791;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
