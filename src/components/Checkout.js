@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
-
 export default function Checkout() {
     const { items, updateItemQuantity, removeItemFromCart } = useContext(CartContext);
 
@@ -15,8 +14,7 @@ export default function Checkout() {
     };
 
     // Calcula o preço total do carrinho
-    // const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const cartPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     return (
         <section className="checkout">
@@ -32,7 +30,7 @@ export default function Checkout() {
                                     <img src={item.thumbnail} alt={item.title} className="checkout-item-img" />
                                     <div id="checkout-inf">
                                         <p className="checkout-item-title" id="title-checkout">{item.title}</p>
-                                        <p className="checkout-item-price" id="price-checkout">${cartPrice.toFixed(2)}</p>
+                                        <p className="checkout-item-price" id="price-checkout">${item.price}</p>
                                     </div>
                                     <div className="checkout-item-quantity">
                                         <button
@@ -60,9 +58,9 @@ export default function Checkout() {
                             </li>
                         ))}
                     </ul>
-                    {/* <div className="checkout-total">
+                    <div className="checkout-total">
                         <h3>Total: ${totalPrice.toFixed(2)}</h3>
-                    </div> */}
+                    </div>
                 </>
             )}
             <div className="checkout-actions">
